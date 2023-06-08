@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project Management Tool</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Project Management Tool</h1>
+    <hr>
+
+    <div id="project-list">
+      <h2>Projects</h2>
+      <hr> <!-- Add a horizontal line -->
+      <ul id="projects"></ul>
+      <input type="text" id="project-input" placeholder="Enter project name">
+      <button onclick="addProject()">Add Project</button>
+    </div>
+
+    <div id="task-list">
+      <h2>Tasks</h2>
+      <hr> <!-- Add a horizontal line -->
+      <ul id="tasks"></ul>
+      <input type="text" id="task-input" placeholder="Enter task name">
+      <button onclick="addTask()">Add Task</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
