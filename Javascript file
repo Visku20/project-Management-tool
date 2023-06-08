@@ -1,0 +1,75 @@
+var projects = [];
+var currentProjectIndex = -1;
+
+function addProject() {
+  var projectName = document.getElementById("project-input").value;
+  if (projectName !== "") {
+    projects.push({ name: projectName, tasks: [] });
+    updateProjects();
+    document.getElementById("project-input").value = "";
+  }
+}
+
+function updateProjects() {
+  var projectsList = document.getElementById("projects");
+  projectsList.innerHTML = "";
+  projects.forEach(function(project, index) {
+    var li = document.createElement("li");
+    li.textContent = (index + 1) + ". " + project.name; // Add numbering
+    li.onclick = function() {
+      selectProject(index);
+    };
+    projectsList.appendChild(li);
+  });
+}
+
+function selectProject(index) {
+  currentProjectIndex = index;
+  updateTasks();
+}
+
+function addTask() {
+  var taskName = document.getElementById("task-input").value;
+  if (taskName !== "" && currentProjectIndex !== -1) {
+    projects[currentProjectIndex].tasks.push({ name: taskName, completed: false });
+    updateTasks();
+    document.getElementById("task-input").value = "";
+  }
+}
+
+function updateTasks() {
+  var tasksList = document.getElementById("tasks");
+  tasksList.innerHTML = "";
+  if (currentProjectIndex !== -1) {
+    projects[currentProjectIndex].tasks.forEach(function(task, index) {
+      var li = document.createElement("li");
+      li.textContent = (index + 1) + ". " + task.name; // Add numbering
+      if (task.completed) {
+        li.classList.add("completed");
+      }
+      li.onclick = function() {
+        toggleTask(index);
+      };
+      tasksList.appendChild(li);
+    });
+  }
+}
+
+function toggleTask(index) {
+  if (currentProjectIndex !== -1) {
+    projects[currentProjectIndex].tasks[index].completed = !projects[currentProjectIndex].tasks[index].completed;
+    updateTasks();
+  }
+}
+
+document.getElementById("project-input").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    addProject();
+  }
+});
+
+document.getElementById("task-input").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    addTask();
+  }
+});
