@@ -1,0 +1,46 @@
+.container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color:skyblue;
+}
+
+h1 {
+  text-align: center;
+}
+
+hr {
+  margin-bottom: 20px;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: lightgoldenrodyellow;
+}
+
+h1 {
+  text-align: center;
+}
+
+#project-list, #task-list {
+  margin: 20px;
+}
+
+input[type="text"] {
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+button {
+  margin-top: 10px;
+}
